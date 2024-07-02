@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html class="!overflow-visible !overflow-y-visible !pr-0" lang="zh-Hant">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="js/js3.7.1.js"></script>
+    <link rel="icon" href="img/icon.ico" type="img/x-icon" />
+    <link rel="stylesheet" href="Basic.css">
+	<title>JKU workshop</title>
+</head>
+<body class="body">
+	<form class="form">
+        <div class="FormTitle" style=" margin-top: -260px; ">基本資訊</div>
+        <div class="inputGroup" style=" margin-top: -150px; "><input type="text"  class="name" autocomplete="off" required/><label for="name">訂貨人姓名</label></div>
+        <div class="select" style=" margin-top: 10px; ">
+            <div class="selected" data-default="取貨地點" data-one="內湖店面" data-two="興華高中" data-three="三民國中"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="arrow"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg></div>
+            <div class="options">
+                <div title="all"><input id="all" name="option" type="radio" value="" disabled checked required /><label class="option" for="all" data-txt="取貨地點"></label></div>
+                <div title="option-1"><input id="option-1" name="option" type="radio" value="內湖店面" required /><label class="option" for="option-1" data-txt="內湖店面"></label></div>
+                <div title="option-2"><input id="option-2" name="option" type="radio" value="興華高中" required /><label class="option" for="option-2" data-txt="興華高中"></label></div>
+                <div title="option-3"><input id="option-3" name="option" type="radio" value="三民國中" required /><label class="option" for="option-3" data-txt="三民國中"></label></div>
+            </div>
+        </div>
+        <button class="animated-button submit" style=" margin-top: 220px; ">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
+            <span class="text">下一頁</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
+        </button>
+    </form>
+
+    <script>var posArray = ["取貨地點", "內湖店面", "興華高中", "三民國中"];</script>
+    <script>
+        $('.form').submit(function (e) {
+            e.preventDefault();
+            if ($('.name').val() && $('input[name="option"]:checked').val()) {
+                // alert($('.name').val()+", "+$('input[name="option"]:checked').val());
+                $.ajax({
+                    url: "https://docs.google.com/forms/d/e/1FAIpQLSd0Pj0NqFb-QkM52H4ZzZQse37SRf2Sh18f2tSFGOmZkf2QDA/formResponse",
+                    crossDomain: true,
+                    data: {
+                        "entry.1799302975": $('.name').val(),
+                        "entry.1272932558": $('input[name="option"]:checked').val()
+                    },
+                    type: "POST",
+                    dataType: "JSONP",
+                    complete: function () {
+                        // alert("ok");
+                        window.location.replace("date-select.html");
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

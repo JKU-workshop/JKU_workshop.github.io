@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html class="!overflow-visible !overflow-y-visible !pr-0" lang="zh-Hant">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="js/js3.7.1.js"></script>
+    <link rel="icon" href="img/icon.ico" type="img/x-icon" />
+    <link rel="stylesheet" href="salad.css">
+	<title>JKU workshop</title>
+</head>
+<body class="body">
+	<form class="form">
+        <div class="FormTitle" style=" margin-top: -260px; ">沙拉船訂單</div>
+        <div class="checkbox-wrapper-9" style=" margin-top: -230px; margin-left: 10px; ">
+            <input checked="" type="checkbox" id="cb4" class="tgl1 tgl-flip1">
+            <label for="cb4" data-tg-on="炸麵包體" data-tg-off="烤麵包體" class="tgl-btn1"></label>
+        </div>
+        <div class="checkbox-wrapper-10" style=" margin-top: -230px; margin-left: 100px; ">
+            <input checked="" type="checkbox" id="cb5" class="tgl tgl-flip">
+            <label for="cb5" data-tg-on="加沙拉" data-tg-off="不加沙拉" class="tgl-btn"></label>
+        </div>
+        <div class="select" style=" margin-top: -10px; margin-left: -110px; ">
+            <div class="selected" data-default="主菜" data-one="照燒豬肉絲" data-two="烤雞肉絲" data-three="熱狗薯餅" data-four="火腿起司" data-five="卡拉雞腿"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="arrow"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg></div>
+            <div class="options">
+                <div title="A-all"><input id="A-all" name="A" type="radio" value="" disabled checked required /><label class="option" for="A-all" data-txt="主菜"></label></div>
+                <div title="A-1"><input id="A-1" name="A" type="radio" value="照燒豬肉絲" required /><label class="option" for="A-1" data-txt="照燒豬肉絲"></label></div>
+                <div title="A-2"><input id="A-2" name="A" type="radio" value="烤雞肉絲" required /><label class="option" for="A-2" data-txt="烤雞肉絲"></label></div>
+                <div title="A-3"><input id="A-3" name="A" type="radio" value="熱狗薯餅" required /><label class="option" for="A-3" data-txt="熱狗薯餅"></label></div>
+                <div title="A-4"><input id="A-4" name="A" type="radio" value="火腿起司" required /><label class="option" for="A-4" data-txt="火腿起司"></label></div>
+                <div title="A-5"><input id="A-5" name="A" type="radio" value="卡拉雞腿" required /><label class="option" for="A-5" data-txt="卡拉雞腿"></label></div>
+            </div>
+        </div>
+        <div class="select" style=" margin-top: -35px; ">
+            <div class="selected" data-default="配菜" data-one="生洋蔥" data-two="洋蔥(微炒)" data-three="酸菜" data-four="玉米"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="arrow"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg></div>
+            <div class="options">
+                <div title="B-all"><input id="B-all" name="B" type="radio" value="" disabled checked required /><label class="option" for="B-all" data-txt="配菜"></label></div>
+                <div title="B-1"><input id="B-1" name="B" type="radio" value="生洋蔥" required /><label class="option" for="B-1" data-txt="生洋蔥"></label></div>
+                <div title="B-2"><input id="B-2" name="B" type="radio" value="洋蔥(微炒)" required /><label class="option" for="B-2" data-txt="洋蔥(微炒)"></label></div>
+                <div title="B-3"><input id="B-3" name="B" type="radio" value="酸菜" required /><label class="option" for="B-3" data-txt="酸菜"></label></div>
+                <div title="B-4"><input id="B-4" name="B" type="radio" value="玉米" required /><label class="option" for="B-4" data-txt="玉米"></label></div>
+            </div>
+        </div>
+        <div class="input-container" style=" margin-top: 200px; margin-left: 100px; ">
+            <input type="text" id="input" class="cnt" oninput="value=value.replace(/[^\d]/g,'')" required>
+            <label for="input" class="label">數量</label>
+            <div class="underline"></div>
+        </div>
+        <button class="animated-button submit" style=" margin-top: 220px; ">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
+            <span class="text">下一頁</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
+        </button>
+    </form>
+
+    <script>
+        var salads = "加沙拉", saladarr = new Array();
+        $(".tgl-flip").click(function(){
+            if(salads == "加沙拉") salads = "不加沙拉";
+            else salads = "加沙拉";
+        });
+        var breads = "炸麵包體";
+        $(".tgl-flip1").click(function(){
+            if(breads == "炸麵包體") breads = "烤麵包體";
+            else breads = "炸麵包體";
+        });
+        $('.form').submit(function (e) {
+            e.preventDefault();
+            if ($('input[name="A"]:checked').val() != "" && $('input[name="B"]:checked').val() != "") {
+                saladarr.push("[" + breads + ", "+ $('input[name="A"]:checked').val() + ", " + $('input[name="B"]:checked').val() + ", " + salads + ", " + $(".cnt").val() +"]");
+                var formsalad = "";
+                for(i=0;i<saladarr.length;i++) formsalad += saladarr[i], formsalad += "\n";
+                $.ajax({
+                    url: "https://docs.google.com/forms/d/e/1FAIpQLSd0Pj0NqFb-QkM52H4ZzZQse37SRf2Sh18f2tSFGOmZkf2QDA/formResponse",
+                    crossDomain: true,
+                    data: {
+                        "entry.1924646518": formsalad,
+                    },
+                    type: "POST",
+                    dataType: "JSONP",
+                    complete: function () {
+                        alert("ok");
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

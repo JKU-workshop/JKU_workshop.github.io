@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html class="!overflow-visible !overflow-y-visible !pr-0" lang="zh-Hant">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="js/js3.7.1.js"></script>
+    <link rel="icon" href="img/icon.ico" type="img/x-icon" />
+    <link rel="stylesheet" href="Basic.css">
+    <link rel="stylesheet" href="date-select.css">
+    <link rel="stylesheet" href="type.css">
+    <link rel="stylesheet" href="salad.css">
+    <link rel="stylesheet" href="donut.css">
+	<title>JKU workshop</title>
+</head>
+<body class="body">
+	<form class="form form1">
+        <div class="FormTitle" style=" margin-top: -260px; ">基本資訊</div>
+        <div class="inputGroup" style=" margin-top: -150px; "><input type="text"  class="name" autocomplete="off" required/><label for="name">訂貨人姓名</label></div>
+        <div class="select" style=" margin-top: 10px; ">
+            <div class="selected" data-default="取貨地點" data-one="內湖店面" data-two="興華高中" data-three="三民國中"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="arrow"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg></div>
+            <div class="options">
+                <div title="all"><input id="all" name="option" type="radio" value="" disabled checked required /><label class="option" for="all" data-txt="取貨地點"></label></div>
+                <div title="option-1"><input id="option-1" name="option" type="radio" value="內湖店面" required /><label class="option" for="option-1" data-txt="內湖店面"></label></div>
+                <div title="option-2"><input id="option-2" name="option" type="radio" value="興華高中" required /><label class="option" for="option-2" data-txt="興華高中"></label></div>
+                <div title="option-3"><input id="option-3" name="option" type="radio" value="三民國中" required /><label class="option" for="option-3" data-txt="三民國中"></label></div>
+            </div>
+        </div>
+        <button class="animated-button submit" style=" margin-top: 220px; ">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
+            <span class="text">下一頁</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
+        </button>
+    </form>
+
+    <form class="form form2">
+        <div class="FormTitle" style=" margin-top: -260px; ">取貨日期</div>
+        <label class="today-mon"></label>
+        <div class="datebox"></div>
+        <button class="animated-button submit" style=" margin-top: 220px; ">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
+            <span class="text">下一頁</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
+        </button>
+    </form>
+    
+    <form class="form form3">
+        <div class="FormTitle" style=" margin-top: -260px; ">購買類型</div>
+        <button class="button" style=" margin-top: -150px; " value="沙拉船（營養三明治）">沙拉船（營養三明治）</button>
+        <button class="button" style=" margin-top: -50px; " value="甜甜圈">甜甜圈</button>
+        <button class="animated-button submitall" style=" margin-top: 220px; ">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
+            <span class="text">送出訂單</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
+        </button>
+    </form>
+
+    <form class="form form4">
+        <div class="FormTitle" style=" margin-top: -260px; ">沙拉船訂單</div>
+        <div class="checkbox-wrapper-9" style=" margin-top: -230px; margin-left: 10px; ">
+            <input checked="" type="checkbox" id="cb4" class="tgl1 tgl-flip1">
+            <label for="cb4" data-tg-on="烤麵包體" data-tg-off="炸麵包體" class="tgl-btn1"></label>
+        </div>
+        <div class="checkbox-wrapper-10" style=" margin-top: -230px; margin-left: 100px; ">
+            <input checked="" type="checkbox" id="cb5" class="tgl tgl-flip">
+            <label for="cb5" data-tg-on="加沙拉" data-tg-off="不加沙拉" class="tgl-btn"></label>
+        </div>
+        <div class="select" style=" margin-top: -10px; margin-left: -110px; ">
+            <div class="selected" data-default="主菜" data-one="照燒豬肉絲" data-two="烤雞肉絲" data-three="熱狗薯餅" data-four="火腿起司" data-five="卡拉雞腿"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="arrow"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg></div>
+            <div class="options">
+                <div title="A-all"><input id="A-all" name="A" type="radio" value="" disabled checked required /><label class="option" for="A-all" data-txt="主菜"></label></div>
+                <div title="A-1"><input id="A-1" name="A" type="radio" value="照燒豬肉絲" required /><label class="option" for="A-1" data-txt="照燒豬肉絲"></label></div>
+                <div title="A-2"><input id="A-2" name="A" type="radio" value="烤雞肉絲" required /><label class="option" for="A-2" data-txt="烤雞肉絲"></label></div>
+                <div title="A-3"><input id="A-3" name="A" type="radio" value="熱狗薯餅" required /><label class="option" for="A-3" data-txt="熱狗薯餅"></label></div>
+                <div title="A-4"><input id="A-4" name="A" type="radio" value="火腿起司" required /><label class="option" for="A-4" data-txt="火腿起司"></label></div>
+                <div title="A-5"><input id="A-5" name="A" type="radio" value="卡拉雞腿" required /><label class="option" for="A-5" data-txt="卡拉雞腿"></label></div>
+            </div>
+        </div>
+        <div class="select" style=" margin-top: -35px; ">
+            <div class="selected" data-default="配菜" data-one="生洋蔥" data-two="洋蔥(微炒)" data-three="酸菜" data-four="玉米"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="arrow"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg></div>
+            <div class="options">
+                <div title="B-all"><input id="B-all" name="B" type="radio" value="" disabled checked required /><label class="option" for="B-all" data-txt="配菜"></label></div>
+                <div title="B-1"><input id="B-1" name="B" type="radio" value="生洋蔥" required /><label class="option" for="B-1" data-txt="生洋蔥"></label></div>
+                <div title="B-2"><input id="B-2" name="B" type="radio" value="洋蔥(微炒)" required /><label class="option" for="B-2" data-txt="洋蔥(微炒)"></label></div>
+                <div title="B-3"><input id="B-3" name="B" type="radio" value="酸菜" required /><label class="option" for="B-3" data-txt="酸菜"></label></div>
+                <div title="B-4"><input id="B-4" name="B" type="radio" value="玉米" required /><label class="option" for="B-4" data-txt="玉米"></label></div>
+            </div>
+        </div>
+        <div class="input-container" style=" margin-top: 200px; margin-left: 100px; ">
+            <input type="text" id="input" class="cnt" oninput="value=value.replace(/[^\d]/g,'')" required>
+            <label for="input" class="label">數量</label>
+            <div class="underline"></div>
+        </div>
+        <button class="animated-button submit" style=" margin-top: 220px; ">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
+            <span class="text">下一頁</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
+        </button>
+    </form>
+
+    <form class="form form5">
+        <div class="FormTitle" style=" margin-top: -260px; ">甜甜圈訂單</div>
+        <div class="donut-select" style=" margin-top: -55px; margin-left: 0px; ">
+            <div class="donut-selected" data-default="主菜" data-one="原味甜甜圈" data-two="紅豆甜甜圈" data-three="芋頭甜甜圈" data-four="酸菜甜甜圈" data-five="巧克力卡士達甜甜圈"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="arrow"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg></div>
+            <div class="donut-options">
+                <div title="donut-all"><input id="donut-all" name="donut" type="radio" value="" disabled checked required /><label class="donut-option" for="donut-all" data-txt="主菜"></label></div>
+                <div title="donut-1"><input id="donut-1" name="donut" type="radio" value="原味甜甜圈" required /><label class="donut-option" for="donut-1" data-txt="原味甜甜圈"></label></div>
+                <div title="donut-2"><input id="donut-2" name="donut" type="radio" value="紅豆甜甜圈" required /><label class="donut-option" for="donut-2" data-txt="紅豆甜甜圈"></label></div>
+                <div title="donut-3"><input id="donut-3" name="donut" type="radio" value="芋頭甜甜圈" required /><label class="donut-option" for="donut-3" data-txt="芋頭甜甜圈"></label></div>
+                <div title="donut-4"><input id="donut-4" name="donut" type="radio" value="酸菜甜甜圈" required /><label class="donut-option" for="donut-4" data-txt="酸菜甜甜圈"></label></div>
+                <div title="donut-5"><input id="donut-5" name="donut" type="radio" value="巧克力卡士達甜甜圈" required /><label class="donut-option" for="donut-5" data-txt="巧克力卡士達甜甜圈"></label></div>
+            </div>
+        </div>
+        <div class="input-container" style=" margin-top: 200px; margin-left: 100px; ">
+            <input type="text" id="input" class="donut-cnt" oninput="value=value.replace(/[^\d]/g,'')" required>
+            <label for="input" class="label">數量</label>
+            <div class="underline"></div>
+        </div>
+        <button class="animated-button submit" style=" margin-top: 220px; ">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
+            <span class="text">下一頁</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
+        </button>
+    </form>
+
+    <script>
+        var saladboat=["照燒豬肉絲", "烤雞肉絲", "熱狗薯餅", "火腿起司", "卡拉雞腿"];
+        var saladboat_price=[50, 50, 50, 50, 60];
+        var donut=["原味甜甜圈", "紅豆甜甜圈", "芋頭甜甜圈", "酸菜甜甜圈", "巧克力卡士達甜甜圈"];
+        var donut_price=[15, 25, 25, 25, 25];
+        function price(name, cnt) {
+            if (saladboat.indexOf(name) == -1) return donut_price[ donut.indexOf(name) ] * cnt;
+            else return saladboat_price[ saladboat.indexOf(name) ] * cnt;
+        }
+    </script>
+
+    <script> $(".form1").show(), $(".form2").hide(), $(".form3").hide(), $(".form4").hide(), $(".form5").hide(); </script>
+    <script>
+        $('.form1').submit(function (e) {
+            e.preventDefault();
+            if ($('.name').val() && $('input[name="option"]:checked').val()) {
+                $(".form2").show(), $(".form1").hide();
+                // alert($('.name').val()+", "+$('input[name="option"]:checked').val());
+            }
+        });
+    </script>
+
+    <script>
+        var date = new Date();
+        // alert(date); // Mon Jul 01 2024 14:52:50 GMT+0800 (Taipei Standard Time)
+        var year = date.getFullYear(), month = date.getMonth() + 1, dates = date.getDate(), dayofWeek = date.getDay();
+        var last = new Date(year, month, 0).getDate();
+        var setone = new Date(date.setDate(1));
+        var nowclick = 0;
+        // alert(dayofWeek); alert(setone.getDay());
+        $(".today-mon").text(year+"年 "+month+"月");
+        var datech=["日", "一", "二", "三", "四", "五", "六"], pdn = 25, sta = 2/*-parseInt((datech.length) / 2)*pdn*/;
+        for(i = 0; i < datech.length; i++) $(".datebox").append(`<label class="month-title" style="margin-left: `+(sta + pdn * i)+`px;" >`+(datech[i])+`</label>`);
+        if(setone.getDay() == 0) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title" style="margin-left: `+((i < 10) ? (sta + pdn * ((i -  1) % 7) + pdn / 6) : (sta + pdn * ((i -  1) % 7)))+`px; margin-top: `+((parseInt(i / 7) + (i % 7 == 0 ? 0 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone.getDay() == 1) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title" style="margin-left: `+((i < 10) ? (sta + pdn * ((i -  0) % 7) + pdn / 6) : (sta + pdn * ((i -  0) % 7)))+`px; margin-top: `+((parseInt(i / 7) + (i % 7 == 0 ? 1 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone.getDay() == 2) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title" style="margin-left: `+((i < 10) ? (sta + pdn * ((i - -1) % 7) + pdn / 6) : (sta + pdn * ((i - -1) % 7)))+`px; margin-top: `+((parseInt(i / 7) + (i % 7 == 6 ? 2 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone.getDay() == 3) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title" style="margin-left: `+((i < 10) ? (sta + pdn * ((i - -2) % 7) + pdn / 6) : (sta + pdn * ((i - -2) % 7)))+`px; margin-top: `+((parseInt(i / 7) + ((i % 7 == 5 || i % 7 == 6) ? 2 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone.getDay() == 4) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title" style="margin-left: `+((i < 10) ? (sta + pdn * ((i - -3) % 7) + pdn / 6) : (sta + pdn * ((i - -3) % 7)))+`px; margin-top: `+((parseInt(i / 7) + ((i % 7 == 4 || i % 7 == 5 || i % 7 == 6) ? 2 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone.getDay() == 5) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title" style="margin-left: `+((i < 10) ? (sta + pdn * ((i - -4) % 7) + pdn / 6) : (sta + pdn * ((i - -4) % 7)))+`px; margin-top: `+((parseInt(i / 7) + ((i % 7 == 3 || i % 7 == 4 || i % 7 == 5 || i % 7 == 6) ? 2 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone.getDay() == 6) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title" style="margin-left: `+((i < 10) ? (sta + pdn * ((i - -5) % 7) + pdn / 6) : (sta + pdn * ((i - -5) % 7)))+`px; margin-top: `+((parseInt(i / 7) + ((i % 7 == 2 || i % 7 == 3 || i % 7 == 4 || i % 7 == 5 || i % 7 == 6) ? 2 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone.getDay() == 5 || setone.getDay() == 6)$(".datebox").css("height", "180px"), $(".datebox").css("margin-top", "10px");
+        for(i = 7; i < (dates + 7 - 1); i++) $(".month-title:eq("+(i)+")").css("background-color", "#9b8e648c");
+        $(".month-title:eq("+(dates + 7 - 1)+")").css("background-color", "#cab56f");
+        $(".month-title").click(function(){
+            if($(this).text() >= (dates)) {
+                $(".month-title").css("background-color", "");
+                $(".month-title:eq("+(dates + 7 - 1)+")").css("background-color", "#cab56f");
+                for(i = 7; i < (dates + 7 - 1); i++) $(".month-title:eq("+(i)+")").css("background-color", "#9b8e648c");
+                $(this).css("background-color", "#ffedb3");
+                nowclick = $(this).text(); // alert(nowclick);
+            }
+        });
+    </script>
+    <script>
+        $('.form2').submit(function (e) {
+            e.preventDefault();
+            if(month < 10) month = "0"+month;
+            if(nowclick < 10) nowclick = "0"+nowclick;
+            if (nowclick != 0) $(".form3").show(), $(".form2").hide();
+        });
+    </script>
+
+    <script>
+        $('.form3').submit(function (e) { e.preventDefault(); });
+        $(".submitall").click(function(){
+            if(saladarr.length > 0){
+                // alert(saladarr);
+                var formsalad = "";
+                for(i=0;i<saladarr.length;i++) formsalad += saladarr[i], formsalad += "\n";
+                var formdonut = "";
+                for(i=0;i<donutarr.length;i++) formdonut += donutarr[i], formdonut += "\n";
+                $.ajax({
+                    url: "https://docs.google.com/forms/d/e/1FAIpQLSd0Pj0NqFb-QkM52H4ZzZQse37SRf2Sh18f2tSFGOmZkf2QDA/formResponse",
+                    crossDomain: true,
+                    data: {
+                        "entry.1799302975": $('.name').val(),
+                        "entry.1272932558": $('input[name="option"]:checked').val(),
+                        "entry.253415855": (year + "/" + month + "/" + nowclick),
+                        "entry.1924646518": formsalad,
+                        "entry.1675500158": formdonut,
+                    },
+                    type: "POST",
+                    dataType: "JSONP",
+                    complete: function () {
+                        alert("ok");
+                    }
+                });
+            }
+        });
+        $(".button").click(function(){
+            if($(this).val() == "沙拉船（營養三明治）") $(".form4").show(), $(".form3").hide();
+            else $(".form5").show(), $(".form3").hide();
+        });
+    </script>
+
+    <script>
+        var salads = "加沙拉", saladarr = new Array();
+        $(".tgl-flip").click(function(){
+            if(salads == "加沙拉") salads = "不加沙拉";
+            else salads = "加沙拉";
+        });
+        var breads = "烤麵包體";
+        $(".tgl-flip1").click(function(){
+            if(breads == "炸麵包體") breads = "烤麵包體";
+            else breads = "炸麵包體";
+        });
+        $('.form4').submit(function (e) {
+            e.preventDefault();
+            if ($('input[name="A"]:checked').val() != "" && $('input[name="B"]:checked').val() != "") {
+                saladarr.push("[" + breads + ", "+ $('input[name="A"]:checked').val() + ", " + $('input[name="B"]:checked').val() + ", " + salads + ", " + $(".cnt").val() +"]");
+                alert( "本項總計：" + price($('input[name="A"]:checked').val(), $(".cnt").val()) );
+                $(".form3").show(), $(".form4").hide();
+                $('input[name="A"]:eq(0)').prop("checked", true);
+                $('input[name="B"]:eq(0)').prop("checked", true);
+                $(".cnt").val("");
+            }
+        });
+    </script>
+
+    <script>
+        var donutarr = new Array();
+        $('.form5').submit(function (e) {
+            e.preventDefault();
+            if ($('input[name="donut"]:checked').val() != "") {
+                donutarr.push("[" + $('input[name="donut"]:checked').val() + ", " + $(".donut-cnt").val() +"]");
+                alert( "本項總計：" + price($('input[name="donut"]:checked').val(), $(".donut-cnt").val()) );
+                $('input[name="donut"]:eq(0)').prop("checked", true);
+                $(".form3").show(), $(".form5").hide();
+                $(".donut-cnt").val("");
+            }
+        });
+    </script>
+</body>
+</html>
