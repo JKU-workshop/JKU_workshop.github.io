@@ -1,0 +1,43 @@
+@font-face { font-family: 'JKU'; src: url('font/LXGWWenKaiMonoTC-Regular.ttf'); }
+a { text-decoration: none; color: #291b09; }
+body { background-color: #FFFBEE; margin: 0%; font-family: 'JKU'; user-select: none; -webkit-user-select: none; -moz-user-select: none; overflow-x: auto; overflow-y: auto; }
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar:hover { width: 7px; height: 7px; }
+font { font-family: 'JKU'; color: #756120; }
+.body { display: flex; justify-content: center; align-items: center; }
+.End { border-radius: 5px; overflow-x: auto; overflow-y: auto; }
+
+
+.notification { display: flex; flex-direction: column; isolation: isolate; position: relative; width: 13.2rem; height: 6.6rem; background: #574729; border-radius: 1rem; overflow: hidden; font-family: 'JKU'; font-size: 16px; --gradient: linear-gradient(to bottom, #ffc72e, #ffcb3d, #ffc061); --color: #ffcf32 }
+.notification:before { position: absolute; content: ""; inset: 0.0625rem; border-radius: 0.9375rem; background: #61532f; z-index: 2 }
+.notification:after { position: absolute; content: ""; width: 0.25rem; inset: 0.65rem auto 0.65rem 0.5rem; border-radius: 0.125rem; background: var(--gradient); transition: transform 300ms ease; z-index: 4; }
+.notification:hover:after { transform: translateX(0.15rem) }
+.notititle { color: var(--color); padding: 0.65rem 0.25rem 0.4rem 1.25rem; font-weight: 500; font-size: 1.1rem; transition: transform 300ms ease; z-index: 5; }
+.notification:hover .notititle { transform: translateX(0.15rem) }
+.notibody { color: #b3a789; padding: 0 1.25rem; transition: transform 300ms ease; z-index: 5; }
+.notification:hover .notibody { transform: translateX(0.25rem) }
+.notiglow, .notiborderglow { position: absolute; width: 20rem; height: 20rem; transform: translate(-50%, -50%); background: radial-gradient(circle closest-side at center, #ffe59d, transparent); opacity: 0; transition: opacity 300ms ease; }
+.notiglow { z-index: 3; }
+.notiborderglow { z-index: 1; }
+.notification:hover .notiglow { opacity: 0.1 }
+.notification:hover .notiborderglow { opacity: 0.1 }
+.note { color: var(--color); position: fixed; top: 80%; left: 50%; transform: translateX(-50%); text-align: center; font-size: 0.9rem; width: 75%; }
+
+
+.card { width: 220px; height: 130px; background: #49412b; position: absolute; border-radius: 10px; border: 1px solid #3b3a34; }
+header, footer, main { display: flex; align-items: center; }
+header { justify-content: space-between; margin: 20px; }
+.card-main { position: absolute; font-size: 20.5px; color: #f1de9e; margin-top: 5px; margin-left: -5px; }
+.card-main3 { position: absolute; font-size: 17px; color: #c4ae68; margin-top: 5px; margin-left: 110px; border-left: #c4ae68 3px solid; border-radius: 1px; padding: 4px; }
+.card-main2 { position: absolute; font-size: 20px; color: #fff4d2; margin-top: 70px; margin-left: 0px; border-left: #ffe591 3px solid; border-radius: 1px; padding: 4px; }
+.card-main4 { position: absolute; font-size: 17px; color: #c4ae68; margin-top: 60px; margin-left: 110px; border-left: #c4ae68 3px solid; border-radius: 1px; padding: 4px; }
+.card-oneprice { position: absolute; font-size: 17px; color: #ffdd6f; margin-top: 140px; margin-left: 0px; border-left: #ffdf76 3px solid; border-radius: 1px; padding: 4px; }
+.card-cnt { position: absolute; font-size: 17px; color: #ddc883; margin-top: 180px; margin-left: 0px; border-left: #ffdf76 3px solid; border-radius: 1px; padding: 4px; }
+
+.cards { width: 220px; height: 100px; background: #49412b; position: absolute; border-radius: 10px; border: 1px solid #3b3a34; }
+.card-mains { position: absolute; font-size: 20.5px; color: #f1de9e; margin-top: 5px; margin-left: -5px; }
+.card-oneprices { position: absolute; font-size: 17px; color: #ffdd6f; margin-top: 70px; margin-left: 0px; border-left: #ffdf76 3px solid; border-radius: 1px; padding: 4px; }
+.card-cnts { position: absolute; font-size: 17px; color: #ddc883; margin-top: 110px; margin-left: 0px; border-left: #ffdf76 3px solid; border-radius: 1px; padding: 4px; }
+
+.cardall { width: 220px; height: 50px; background: #b3a06b; position: absolute; border-radius: 10px; border: 1px solid #7a6d47; display: flex; align-items: center; }
+.card-allprice { position: absolute; font-size: 25px; color: #6d5c24; margin-left: 20px; }

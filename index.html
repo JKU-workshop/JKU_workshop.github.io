@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="type.css">
     <link rel="stylesheet" href="salad.css">
     <link rel="stylesheet" href="donut.css">
+    <link rel="stylesheet" href="Thanks.css">
 	<title>JKU workshop</title>
 </head>
 <body class="body">
@@ -65,7 +66,7 @@
         <div class="FormTitle" style=" margin-top: -260px; ">沙拉船訂單</div>
         <div class="checkbox-wrapper-9" style=" margin-top: -230px; margin-left: 10px; ">
             <input checked="" type="checkbox" id="cb4" class="tgl1 tgl-flip1">
-            <label for="cb4" data-tg-on="烤麵包體" data-tg-off="炸麵包體" class="tgl-btn1"></label>
+            <label for="cb4" data-tg-on="炸麵包體" data-tg-off="烤麵包體" class="tgl-btn1"></label>
         </div>
         <div class="checkbox-wrapper-10" style=" margin-top: -230px; margin-left: 100px; ">
             <input checked="" type="checkbox" id="cb5" class="tgl tgl-flip">
@@ -131,6 +132,17 @@
         </button>
     </form>
 
+    <div class="End">
+        <div class="notification">
+            <div class="notiglow"></div>
+            <div class="notiborderglow"></div>
+            <div class="notititle">基本資訊</div>
+            <div class="notibody"></div>
+        </div>
+        <div class="ordercard"></div>
+    </div>
+
+
     <script>
         var saladboat=["照燒豬肉絲", "烤雞肉絲", "熱狗薯餅", "火腿起司", "卡拉雞腿"];
         var saladboat_price=[50, 50, 50, 50, 60];
@@ -142,7 +154,7 @@
         }
     </script>
 
-    <script> $(".form1").show(), $(".form2").hide(), $(".form3").hide(), $(".form4").hide(), $(".form5").hide(); </script>
+    <script> $(".form1").show(), $(".form2").hide(), $(".form3").hide(), $(".form4").hide(), $(".form5").hide(), $(".End").hide(); </script>
     <script>
         $('.form1').submit(function (e) {
             e.preventDefault();
@@ -214,7 +226,7 @@
         $(".frontmonthbox").click(function(){ swap("now"); });
         $(".nextmonthbox").click(function(){ swap("next"); });
     </script>
-    <script>
+    <script>/*12月-換年-未解決*/
         var date_next = new Date(date.getFullYear(), date.getMonth() + 1, 1);
         var year_next = date_next.getFullYear(), month_next = date_next.getMonth() + 1, dates_next = date_next.getDate(), dayofWeek_next = date_next.getDay();
         var last_next = new Date(year_next, month_next, 0).getDate();
@@ -296,7 +308,10 @@
                     type: "POST",
                     dataType: "JSONP",
                     complete: function () {
-                        alert("ok");
+                        // alert("ok");
+                        $(".form3").hide(), $(".End").show();
+                        $(".notibody").append(`姓名：`+($('.name').val())+`<br>取貨地點：`+($('input[name="option"]:checked').val())+`<br>取貨日期：`+((year + "/" + POSTmonth + "/" + nowclick))+``);
+                        runcard();
                     }
                 });
             }
@@ -313,7 +328,7 @@
             if(salads == "加沙拉") salads = "不加沙拉";
             else salads = "加沙拉";
         });
-        var breads = "烤麵包體";
+        var breads = "炸麵包體";
         $(".tgl-flip1").click(function(){
             if(breads == "炸麵包體") breads = "烤麵包體";
             else breads = "炸麵包體";
@@ -343,6 +358,59 @@
                 $(".donut-cnt").val("");
             }
         });
+    </script>
+
+
+    <script>
+        function runcard() {
+            var saladarrcard = new Array();
+            for(i=0;i<saladarr.length;i++) {
+                saladarr[i] = saladarr[i].substring(1, saladarr[i].length - 1);
+                var ocursalad = saladarr[i].split(", ");
+                saladarrcard.push(ocursalad);
+            }
+            var donutarrcard = new Array();
+            for(i=0;i<donutarr.length;i++) {
+                donutarr[i] = donutarr[i].substring(1, donutarr[i].length - 1);
+                var ocurdonut = donutarr[i].split(", ");
+                donutarrcard.push(ocurdonut);
+            }
+            for(i=0;i<saladarrcard.length;i++) {
+                $(".ordercard").append(`
+                    <section class="card" style="margin-top: `+(140 * i + 10)+`px;">
+                        <header>
+                            <div class="card-main">`+(saladarrcard[i][1])+`</div>
+                            <div class="card-main3">`+(saladarrcard[i][0])+`</div>
+                            <div class="card-main2">`+(saladarrcard[i][2])+`</div>
+                            <div class="card-main4">`+(saladarrcard[i][3])+`</div>
+                            <div class="card-oneprice">單價 `+(saladboat_price[ saladboat.indexOf(saladarrcard[i][1]) ])+` 元</div>
+                            <div class="card-cnt">數量：`+(saladarrcard[i][4])+` 個</div>
+                        </header>
+                    </section>
+                `);
+            }
+            for(i=0;i<donutarrcard.length;i++) {
+                $(".ordercard").append(`
+                    <section class="cards" style="margin-top: `+(110 * i + 10 + (140 * (saladarrcard.length) + 10))+`px;">
+                        <header>
+                            <div class="card-mains">`+(donutarrcard[i][0])+`</div>
+                            <div class="card-oneprices">單價 `+(donut_price[ donut.indexOf(donutarrcard[i][0]) ])+` 元</div>
+                            <div class="card-cnts">數量：`+(donutarrcard[i][1])+` 個</div>
+                        </header>
+                    </section>
+                `);
+            }
+            var allprice = 0;
+            for(i=0;i<saladarrcard.length;i++) allprice += ((saladboat_price[ saladboat.indexOf(saladarrcard[i][1]) ]) * (saladarrcard[i][4]));
+            for(i=0;i<donutarrcard.length;i++) allprice += ((donut_price[ donut.indexOf(donutarrcard[i][0]) ]) * (donutarrcard[i][1]));
+            $(".ordercard").append(`
+                <section class="cardall" style="margin-top: `+((110 * (donutarrcard.length) + 10) + (140 * (saladarrcard.length) + 10))+`px;">
+                    <header>
+                        <div class="card-allprice">總計 `+(allprice)+` 元</div>
+                    </header>
+                </section>
+            `);
+        }
     </script>
 </body>
 </html>
