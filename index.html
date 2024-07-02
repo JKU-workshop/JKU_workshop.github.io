@@ -37,7 +37,10 @@
     <form class="form form2">
         <div class="FormTitle" style=" margin-top: -260px; ">取貨日期</div>
         <label class="today-mon"></label>
+        <div class="frontmonthbox"><svg xmlns="http://www.w3.org/2000/svg" class="frontmonth" viewBox="0 0 384 512"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></div>
+        <div class="nextmonthbox"><svg xmlns="http://www.w3.org/2000/svg" class="nextmonth" viewBox="0 0 384 512"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></div>
         <div class="datebox"></div>
+        <div class="datebox-next"></div>
         <button class="animated-button submit" style=" margin-top: 220px; ">
             <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
             <span class="text">下一頁</span>
@@ -96,7 +99,7 @@
         </div>
         <button class="animated-button submit" style=" margin-top: 220px; ">
             <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
-            <span class="text">下一頁</span>
+            <span class="text">確認</span>
             <span class="circle"></span>
             <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
         </button>
@@ -122,7 +125,7 @@
         </div>
         <button class="animated-button submit" style=" margin-top: 220px; ">
             <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
-            <span class="text">下一頁</span>
+            <span class="text">確認</span>
             <span class="circle"></span>
             <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
         </button>
@@ -149,33 +152,114 @@
             }
         });
     </script>
-
     <script>
         var date = new Date();
+        // date = new Date(date.getFullYear(), date.getMonth() + 0, 1);
         // alert(date); // Mon Jul 01 2024 14:52:50 GMT+0800 (Taipei Standard Time)
         var year = date.getFullYear(), month = date.getMonth() + 1, dates = date.getDate(), dayofWeek = date.getDay();
         var last = new Date(year, month, 0).getDate();
         var setone = new Date(date.setDate(1));
         var nowclick = 0;
-        // alert(dayofWeek); alert(setone.getDay());
         $(".today-mon").text(year+"年 "+month+"月");
         var datech=["日", "一", "二", "三", "四", "五", "六"], pdn = 25, sta = 2/*-parseInt((datech.length) / 2)*pdn*/;
-        for(i = 0; i < datech.length; i++) $(".datebox").append(`<label class="month-title" style="margin-left: `+(sta + pdn * i)+`px;" >`+(datech[i])+`</label>`);
-        if(setone.getDay() == 0) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title" style="margin-left: `+((i < 10) ? (sta + pdn * ((i -  1) % 7) + pdn / 6) : (sta + pdn * ((i -  1) % 7)))+`px; margin-top: `+((parseInt(i / 7) + (i % 7 == 0 ? 0 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
-        if(setone.getDay() == 1) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title" style="margin-left: `+((i < 10) ? (sta + pdn * ((i -  0) % 7) + pdn / 6) : (sta + pdn * ((i -  0) % 7)))+`px; margin-top: `+((parseInt(i / 7) + (i % 7 == 0 ? 1 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
-        if(setone.getDay() == 2) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title" style="margin-left: `+((i < 10) ? (sta + pdn * ((i - -1) % 7) + pdn / 6) : (sta + pdn * ((i - -1) % 7)))+`px; margin-top: `+((parseInt(i / 7) + (i % 7 == 6 ? 2 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
-        if(setone.getDay() == 3) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title" style="margin-left: `+((i < 10) ? (sta + pdn * ((i - -2) % 7) + pdn / 6) : (sta + pdn * ((i - -2) % 7)))+`px; margin-top: `+((parseInt(i / 7) + ((i % 7 == 5 || i % 7 == 6) ? 2 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
-        if(setone.getDay() == 4) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title" style="margin-left: `+((i < 10) ? (sta + pdn * ((i - -3) % 7) + pdn / 6) : (sta + pdn * ((i - -3) % 7)))+`px; margin-top: `+((parseInt(i / 7) + ((i % 7 == 4 || i % 7 == 5 || i % 7 == 6) ? 2 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
-        if(setone.getDay() == 5) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title" style="margin-left: `+((i < 10) ? (sta + pdn * ((i - -4) % 7) + pdn / 6) : (sta + pdn * ((i - -4) % 7)))+`px; margin-top: `+((parseInt(i / 7) + ((i % 7 == 3 || i % 7 == 4 || i % 7 == 5 || i % 7 == 6) ? 2 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
-        if(setone.getDay() == 6) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title" style="margin-left: `+((i < 10) ? (sta + pdn * ((i - -5) % 7) + pdn / 6) : (sta + pdn * ((i - -5) % 7)))+`px; margin-top: `+((parseInt(i / 7) + ((i % 7 == 2 || i % 7 == 3 || i % 7 == 4 || i % 7 == 5 || i % 7 == 6) ? 2 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
-        if(setone.getDay() == 5 || setone.getDay() == 6)$(".datebox").css("height", "180px"), $(".datebox").css("margin-top", "10px");
-        for(i = 7; i < (dates + 7 - 1); i++) $(".month-title:eq("+(i)+")").css("background-color", "#9b8e648c");
-        $(".month-title:eq("+(dates + 7 - 1)+")").css("background-color", "#cab56f");
-        $(".month-title").click(function(){
-            if($(this).text() >= (dates)) {
-                $(".month-title").css("background-color", "");
-                $(".month-title:eq("+(dates + 7 - 1)+")").css("background-color", "#cab56f");
-                for(i = 7; i < (dates + 7 - 1); i++) $(".month-title:eq("+(i)+")").css("background-color", "#9b8e648c");
+        for(i = 0; i < datech.length; i++) $(".datebox").append(`<label class="month-title-now-month" style="margin-left: `+(sta + pdn * i)+`px;" >`+(datech[i])+`</label>`);
+        if(setone.getDay() == 0) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title-now-month" style="margin-left: `+((i < 10) ? (sta + pdn * ((i -  1) % 7) + pdn / 6) : (sta + pdn * ((i -  1) % 7)))+`px; margin-top: `+((parseInt(i / 7) + (i % 7 == 0 ? 0 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone.getDay() == 1) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title-now-month" style="margin-left: `+((i < 10) ? (sta + pdn * ((i -  0) % 7) + pdn / 6) : (sta + pdn * ((i -  0) % 7)))+`px; margin-top: `+((parseInt(i / 7) + (i % 7 == 0 ? 1 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone.getDay() == 2) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title-now-month" style="margin-left: `+((i < 10) ? (sta + pdn * ((i - -1) % 7) + pdn / 6) : (sta + pdn * ((i - -1) % 7)))+`px; margin-top: `+((parseInt(i / 7) + (i % 7 == 6 ? 2 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone.getDay() == 3) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title-now-month" style="margin-left: `+((i < 10) ? (sta + pdn * ((i - -2) % 7) + pdn / 6) : (sta + pdn * ((i - -2) % 7)))+`px; margin-top: `+((parseInt(i / 7) + ((i % 7 == 5 || i % 7 == 6) ? 2 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone.getDay() == 4) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title-now-month" style="margin-left: `+((i < 10) ? (sta + pdn * ((i - -3) % 7) + pdn / 6) : (sta + pdn * ((i - -3) % 7)))+`px; margin-top: `+((parseInt(i / 7) + ((i % 7 == 4 || i % 7 == 5 || i % 7 == 6) ? 2 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone.getDay() == 5) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title-now-month" style="margin-left: `+((i < 10) ? (sta + pdn * ((i - -4) % 7) + pdn / 6) : (sta + pdn * ((i - -4) % 7)))+`px; margin-top: `+((parseInt(i / 7) + ((i % 7 == 3 || i % 7 == 4 || i % 7 == 5 || i % 7 == 6) ? 2 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone.getDay() == 6) for(i = 1; i <= last; i++) $(".datebox").append(`<label class="month-title-now-month" style="margin-left: `+((i < 10) ? (sta + pdn * ((i - -5) % 7) + pdn / 6) : (sta + pdn * ((i - -5) % 7)))+`px; margin-top: `+((parseInt(i / 7) + ((i % 7 == 2 || i % 7 == 3 || i % 7 == 4 || i % 7 == 5 || i % 7 == 6) ? 2 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone.getDay() == 5 || setone.getDay() == 6) $(".datebox").css("height", "180px"), $(".datebox").css("margin-top", "10px");
+        var not_open = new Array(), nowdateofweek = setone.getDay();
+        //
+        var no_open = [];
+        var no_open_dayofweek = [1, 7];
+        //
+        for(i = 0; i < no_open.length; i++) not_open.push(no_open[i] + 7 - 1);
+        for(i = 7; i < (dates + 7 - 1); i++) not_open.push(i);
+        $(".month-title-now-month:eq("+(dates + 7 - 1)+")").css("background-color", "#cab56f");
+        for(i = 1; i <= last; i++) {
+            if(no_open_dayofweek.indexOf(nowdateofweek) != -1 || no_open_dayofweek.indexOf(nowdateofweek + 7) != -1) not_open.push((i + 7 - 1));
+            nowdateofweek++, nowdateofweek %= 7;
+        }
+        for(i = 0; i < not_open.length; i++) {
+            if($(".month-title-now-month:eq("+(not_open[i])+")").text() < 10) $(".month-title-now-month:eq("+(not_open[i])+")").append(`<svg xmlns="http://www.w3.org/2000/svg" class="xmark" style = "margin-left: -13px;" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>`), $(".month-title-now-month:eq("+(not_open[i])+")").css("background-color", "#e9b2008c"), $(".month-title-now-month:eq("+(not_open[i])+")").css("color", "#fff4cf8c");
+            else $(".month-title-now-month:eq("+(not_open[i])+")").append(`<svg xmlns="http://www.w3.org/2000/svg" class="xmark" style = "margin-left: -16px;" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>`), $(".month-title-now-month:eq("+(not_open[i])+")").css("background-color", "#e9b2008c"), $(".month-title-now-month:eq("+(not_open[i])+")").css("color", "#fff4cf8c");
+        }
+        var not_open_arr = new Array();
+        for(i = 0; i < not_open.length; i++) not_open_arr.push($(".month-title-now-month:eq("+(not_open[i])+")").text());
+        $(".month-title-now-month").click(function(){
+            if(not_open_arr.indexOf($(this).text()) == -1) {
+                $(".month-title-now-month").css("background-color", "");
+                $(".month-title-now-month:eq("+(dates + 7 - 1)+")").css("background-color", "#cab56f");
+                for(i = 0; i < not_open.length; i++) $(".month-title-now-month:eq("+(not_open[i])+")").css("background-color", "#e9b2008c"), $(".month-title-now-month:eq("+(not_open[i])+")").css("color", "#fff4cf8c");        
+                $(this).css("background-color", "#ffedb3");
+                nowclick = $(this).text(); // alert(nowclick);
+                /* next_month */
+                $(".month-title-next-month").css("background-color", "");
+                $(".month-title-next-month:eq("+(dates_next + 7 - 1)+")").css("background-color", "#cab56f");
+                for(i = 0; i < not_open_next.length; i++) $(".month-title-next-month:eq("+(not_open_next[i])+")").css("background-color", "#e9b2008c"), $(".month-title-next-month:eq("+(not_open_next[i])+")").css("color", "#fff4cf8c");        
+                $(this).css("background-color", "#ffedb3");
+                nowclick = $(this).text(); // alert(nowclick);
+            }
+        });
+    </script>
+    <script>
+        swap("now"); var POSTmonth;
+        function swap(s) {
+            if(s == "next") $(".datebox").hide(), $(".datebox-next").show(), $(".today-mon").text(year_next+"年 "+month_next+"月"), POSTmonth = month_next, $(".frontmonthbox").show(), $(".nextmonthbox").hide();
+            else $(".datebox").show(), $(".datebox-next").hide(), $(".today-mon").text(year+"年 "+month+"月"), POSTmonth = month, $(".frontmonthbox").hide(), $(".nextmonthbox").show();
+        }
+        $(".frontmonthbox").click(function(){ swap("now"); });
+        $(".nextmonthbox").click(function(){ swap("next"); });
+    </script>
+    <script>
+        var date_next = new Date(date.getFullYear(), date.getMonth() + 1, 1);
+        var year_next = date_next.getFullYear(), month_next = date_next.getMonth() + 1, dates_next = date_next.getDate(), dayofWeek_next = date_next.getDay();
+        var last_next = new Date(year_next, month_next, 0).getDate();
+        var setone_next = new Date(date_next.setDate(1));
+        var nowclick_next = 0;
+        // $(".today-mon").text(year_next+"年 "+month_next+"月");
+        var datech=["日", "一", "二", "三", "四", "五", "六"], pdn = 25, sta = 2/*-parseInt((datech.length) / 2)*pdn*/;
+        for(i = 0; i < datech.length; i++) $(".datebox-next").append(`<label class="month-title-next-month" style="margin-left: `+(sta + pdn * i)+`px;" >`+(datech[i])+`</label>`);
+        if(setone_next.getDay() == 0) for(i = 1; i <= last_next; i++) $(".datebox-next").append(`<label class="month-title-next-month" style="margin-left: `+((i < 10) ? (sta + pdn * ((i -  1) % 7) + pdn / 6) : (sta + pdn * ((i -  1) % 7)))+`px; margin-top: `+((parseInt(i / 7) + (i % 7 == 0 ? 0 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone_next.getDay() == 1) for(i = 1; i <= last_next; i++) $(".datebox-next").append(`<label class="month-title-next-month" style="margin-left: `+((i < 10) ? (sta + pdn * ((i -  0) % 7) + pdn / 6) : (sta + pdn * ((i -  0) % 7)))+`px; margin-top: `+((parseInt(i / 7) + (i % 7 == 0 ? 1 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone_next.getDay() == 2) for(i = 1; i <= last_next; i++) $(".datebox-next").append(`<label class="month-title-next-month" style="margin-left: `+((i < 10) ? (sta + pdn * ((i - -1) % 7) + pdn / 6) : (sta + pdn * ((i - -1) % 7)))+`px; margin-top: `+((parseInt(i / 7) + (i % 7 == 6 ? 2 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone_next.getDay() == 3) for(i = 1; i <= last_next; i++) $(".datebox-next").append(`<label class="month-title-next-month" style="margin-left: `+((i < 10) ? (sta + pdn * ((i - -2) % 7) + pdn / 6) : (sta + pdn * ((i - -2) % 7)))+`px; margin-top: `+((parseInt(i / 7) + ((i % 7 == 5 || i % 7 == 6) ? 2 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone_next.getDay() == 4) for(i = 1; i <= last_next; i++) $(".datebox-next").append(`<label class="month-title-next-month" style="margin-left: `+((i < 10) ? (sta + pdn * ((i - -3) % 7) + pdn / 6) : (sta + pdn * ((i - -3) % 7)))+`px; margin-top: `+((parseInt(i / 7) + ((i % 7 == 4 || i % 7 == 5 || i % 7 == 6) ? 2 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone_next.getDay() == 5) for(i = 1; i <= last_next; i++) $(".datebox-next").append(`<label class="month-title-next-month" style="margin-left: `+((i < 10) ? (sta + pdn * ((i - -4) % 7) + pdn / 6) : (sta + pdn * ((i - -4) % 7)))+`px; margin-top: `+((parseInt(i / 7) + ((i % 7 == 3 || i % 7 == 4 || i % 7 == 5 || i % 7 == 6) ? 2 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone_next.getDay() == 6) for(i = 1; i <= last_next; i++) $(".datebox-next").append(`<label class="month-title-next-month" style="margin-left: `+((i < 10) ? (sta + pdn * ((i - -5) % 7) + pdn / 6) : (sta + pdn * ((i - -5) % 7)))+`px; margin-top: `+((parseInt(i / 7) + ((i % 7 == 2 || i % 7 == 3 || i % 7 == 4 || i % 7 == 5 || i % 7 == 6) ? 2 : 1)) * pdn)+`px;" >`+(i)+`</label>`);
+        if(setone_next.getDay() == 5 || setone_next.getDay() == 6) $(".datebox-next").css("height", "180px"), $(".datebox").css("margin-top", "10px");
+        var not_open_next = new Array(), nowdateofweek_next = setone_next.getDay();
+        //
+        var no_open_next = [];
+        var no_open_dayofweek_next = [1, 7];
+        //
+        for(i = 0; i < no_open_next.length; i++) not_open_next.push(no_open_next[i] + 7 - 1);
+        for(i = 7; i < (dates_next + 7 - 1); i++) not_open_next.push(i);
+        $(".month-title-next-month:eq("+(dates_next + 7 - 1)+")").css("background-color", "#cab56f");
+        for(i = 1; i <= last_next; i++) {
+            if(no_open_dayofweek_next.indexOf(nowdateofweek_next) != -1 || no_open_dayofweek_next.indexOf(nowdateofweek_next + 7) != -1) not_open_next.push((i + 7 - 1));
+            nowdateofweek_next++, nowdateofweek_next %= 7;
+        }
+        for(i = 0; i < not_open_next.length; i++) {
+            if($(".month-title-next-month:eq("+(not_open_next[i])+")").text() < 10) $(".month-title-next-month:eq("+(not_open_next[i])+")").append(`<svg xmlns="http://www.w3.org/2000/svg" class="xmark" style = "margin-left: -13px;" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>`), $(".month-title-next-month:eq("+(not_open_next[i])+")").css("background-color", "#e9b2008c"), $(".month-title-next-month:eq("+(not_open_next[i])+")").css("color", "#fff4cf8c");
+            else $(".month-title-next-month:eq("+(not_open_next[i])+")").append(`<svg xmlns="http://www.w3.org/2000/svg" class="xmark" style = "margin-left: -16px;" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>`), $(".month-title-next-month:eq("+(not_open_next[i])+")").css("background-color", "#e9b2008c"), $(".month-title-next-month:eq("+(not_open_next[i])+")").css("color", "#fff4cf8c");
+        }
+        var not_open_arr_next = new Array();
+        for(i = 0; i < not_open.length_next; i++) not_open_arr_next.push($(".month-title-next-month:eq("+(not_open_next[i])+")").text());
+        $(".month-title-next-month").click(function(){
+            if(not_open_arr_next.indexOf($(this).text()) == -1) {
+                $(".month-title-next-month").css("background-color", "");
+                $(".month-title-next-month:eq("+(dates_next + 7 - 1)+")").css("background-color", "#cab56f");
+                for(i = 0; i < not_open_next.length; i++) $(".month-title-next-month:eq("+(not_open_next[i])+")").css("background-color", "#e9b2008c"), $(".month-title-next-month:eq("+(not_open_next[i])+")").css("color", "#fff4cf8c");        
+                $(this).css("background-color", "#ffedb3");
+                nowclick = $(this).text(); // alert(nowclick);
+                /* pre_month */
+                $(".month-title-now-month").css("background-color", "");
+                $(".month-title-now-month:eq("+(dates + 7 - 1)+")").css("background-color", "#cab56f");
+                for(i = 0; i < not_open.length; i++) $(".month-title-now-month:eq("+(not_open[i])+")").css("background-color", "#e9b2008c"), $(".month-title-now-month:eq("+(not_open[i])+")").css("color", "#fff4cf8c");        
                 $(this).css("background-color", "#ffedb3");
                 nowclick = $(this).text(); // alert(nowclick);
             }
@@ -184,7 +268,7 @@
     <script>
         $('.form2').submit(function (e) {
             e.preventDefault();
-            if(month < 10) month = "0"+month;
+            if(POSTmonth < 10) POSTmonth = "0"+POSTmonth;
             if(nowclick < 10) nowclick = "0"+nowclick;
             if (nowclick != 0) $(".form3").show(), $(".form2").hide();
         });
@@ -193,7 +277,7 @@
     <script>
         $('.form3').submit(function (e) { e.preventDefault(); });
         $(".submitall").click(function(){
-            if(saladarr.length > 0){
+            if(saladarr.length > 0 || donutarr.length > 0){
                 // alert(saladarr);
                 var formsalad = "";
                 for(i=0;i<saladarr.length;i++) formsalad += saladarr[i], formsalad += "\n";
@@ -205,7 +289,7 @@
                     data: {
                         "entry.1799302975": $('.name').val(),
                         "entry.1272932558": $('input[name="option"]:checked').val(),
-                        "entry.253415855": (year + "/" + month + "/" + nowclick),
+                        "entry.253415855": (year + "/" + POSTmonth + "/" + nowclick),
                         "entry.1924646518": formsalad,
                         "entry.1675500158": formdonut,
                     },

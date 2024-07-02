@@ -24,5 +24,14 @@ font { font-family: 'JKU'; color: #756120; }
 
 .today-mon { position: absolute; margin-top: -200px; }
 .datebox { position: absolute; margin-top: -20px; margin-left: 0px; border-radius: 5px; height: 150px; width: 175px; background-color: #ffd753; }
-.month-title { position: absolute; border-radius: 5px; padding: 3px; cursor: pointer; }
-.month-title:hover { position: absolute; border-radius: 5px; background-color: #ffe693; }
+.datebox-next { position: absolute; margin-top: -20px; margin-left: 0px; border-radius: 5px; height: 150px; width: 175px; background-color: #ffd753; }
+.month-title-now-month { position: absolute; border-radius: 5px; padding: 3px; cursor: pointer; }
+.month-title-now-month:hover { position: absolute; border-radius: 5px; background-color: #ffe693; }
+.month-title-next-month { position: absolute; border-radius: 5px; padding: 3px; cursor: pointer; }
+.month-title-next-month:hover { position: absolute; border-radius: 5px; background-color: #ffe693; }
+
+.xmark { position: absolute; width: 17px; height: 17px; fill: #79511c; margin-top: 2px; }
+.nextmonthbox { position: absolute; width: 20px; height: 20px; margin-top: -200px; margin-left: 120px; cursor: pointer; }
+.nextmonth { position: absolute; width: 20px; height: 20px; fill: #ac8c37; cursor: pointer; }
+.frontmonthbox { position: absolute; width: 20px; height: 20px; margin-top: -200px; margin-left: -120px; cursor: pointer; }
+.frontmonth { position: absolute; width: 20px; height: 20px; fill: #ac8c37; cursor: pointer; transform: rotate(180deg); }
