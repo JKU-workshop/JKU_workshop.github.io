@@ -8,9 +8,9 @@ font { font-family: 'JKU'; color: #756120; }
 .End { border-radius: 5px; overflow-x: auto; overflow-y: auto; }
 
 
-.notification { display: flex; flex-direction: column; isolation: isolate; position: relative; width: 13.2rem; height: 6.6rem; background: #574729; border-radius: 1rem; overflow: hidden; font-family: 'JKU'; font-size: 16px; --gradient: linear-gradient(to bottom, #ffc72e, #ffcb3d, #ffc061); --color: #ffcf32 }
-.notification:before { position: absolute; content: ""; inset: 0.0625rem; border-radius: 0.9375rem; background: #61532f; z-index: 2 }
-.notification:after { position: absolute; content: ""; width: 0.25rem; inset: 0.65rem auto 0.65rem 0.5rem; border-radius: 0.125rem; background: var(--gradient); transition: transform 300ms ease; z-index: 4; }
+.notification { display: flex; flex-direction: column; isolation: isolate; position: relative; width: 13.2rem; height: 6.6rem; background: #574729; border-radius: 5px; overflow: hidden; font-family: 'JKU'; font-size: 16px; --gradient: linear-gradient(to bottom, #ffc72e, #ffcb3d, #ffc061); --color: #ffcf32 }
+.notification:before { position: absolute; content: ""; inset: 0.0625rem; border-radius: 5px; background: #61532f; z-index: 2 }
+.notification:after { position: absolute; content: ""; width: 0.25rem; inset: 0.65rem auto 0.65rem 0.5rem; border-radius: 5px; background: var(--gradient); transition: transform 300ms ease; z-index: 4; }
 .notification:hover:after { transform: translateX(0.15rem) }
 .notititle { color: var(--color); padding: 0.65rem 0.25rem 0.4rem 1.25rem; font-weight: 500; font-size: 1.1rem; transition: transform 300ms ease; z-index: 5; }
 .notification:hover .notititle { transform: translateX(0.15rem) }
@@ -30,7 +30,7 @@ header { justify-content: space-between; margin: 20px; }
 .card-main { position: absolute; font-size: 20.5px; color: #f1de9e; margin-top: 5px; margin-left: -5px; }
 .card-main3 { position: absolute; font-size: 17px; color: #c4ae68; margin-top: 5px; margin-left: 110px; border-left: #c4ae68 3px solid; border-radius: 1px; padding: 4px; }
 .card-main2 { position: absolute; font-size: 20px; color: #fff4d2; margin-top: 70px; margin-left: 0px; border-left: #ffe591 3px solid; border-radius: 1px; padding: 4px; }
-.card-main4 { position: absolute; font-size: 17px; color: #c4ae68; margin-top: 60px; margin-left: 110px; border-left: #c4ae68 3px solid; border-radius: 1px; padding: 4px; }
+.card-main4 { position: absolute; font-size: 17px; color: #c4ae68; margin-top: 55px; margin-left: 110px; border-left: #c4ae68 3px solid; border-radius: 1px; padding: 4px; }
 .card-oneprice { position: absolute; font-size: 17px; color: #ffdd6f; margin-top: 140px; margin-left: 0px; border-left: #ffdf76 3px solid; border-radius: 1px; padding: 4px; }
 .card-cnt { position: absolute; font-size: 17px; color: #ddc883; margin-top: 180px; margin-left: 0px; border-left: #ffdf76 3px solid; border-radius: 1px; padding: 4px; }
 

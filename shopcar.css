@@ -1,0 +1,19 @@
+@font-face { font-family: 'JKU'; src: url('font/LXGWWenKaiMonoTC-Regular.ttf'); }
+a { text-decoration: none; color: #291b09; }
+body { background-color: #FFFBEE; margin: 0%; font-family: 'JKU'; user-select: none; -webkit-user-select: none; -moz-user-select: none; overflow-x: auto; overflow-y: auto; }
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar:hover { width: 7px; height: 7px; }
+font { font-family: 'JKU'; color: #756120; }
+.body { display: flex; justify-content: center; align-items: center; }
+.shopcarform { border-radius: 5px; overflow-x: auto; overflow-y: auto; }
+
+
+.trash { position: absolute; display: flex; justify-content: center; align-items: center; border: none; border-radius: 5px; min-height: 50px; min-width: 55px; cursor: pointer; box-shadow: 0px 0px 2px 2px #756223; background-color: #f7d883; transition: all 0.3s; }
+.trash:hover { box-shadow: 0px 0px 4px 4px #756223; background-color: #f7e5b3; transition: all 0.3s; }
+.trash:active { box-shadow: 0px 0px 1px 1px #756223; background-color: #caaf64; transition: all 0.3s; }
+.trashicon { fill: #644114; transition: all 0.3s; margin-top: -10px; }
+.trash:hover > .trashicon { fill: #9c651d; transition: all 0.3s; }
+.trash:active > .trashicon { fill: #694a20; transition: all 0.3s; }
+.trash span { font-family: 'JKU'; position: absolute; margin-top: 36px; font-size: 12px; color: #855b25; transition: all 0.3s; }
+.trash:hover > span { font-family: 'JKU'; position: absolute; margin-top: 36px; font-size: 12.5px; color: #a37f51; transition: all 0.3s; }
+.trash:active > span { font-family: 'JKU'; position: absolute; margin-top: 36px; font-size: 13px; color: #725630; transition: all 0.3s; }
